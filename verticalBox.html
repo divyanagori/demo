@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vertical Box (Box Model)</title>
+  <style>
+    /* Reset-ish */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:#f3f3f6; }
+
+    /* Outer wrapper centers the vertical card on the page */
+    .wrap {
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 16px;
+    }
+
+    /* The purple rounded vertical box (the main component) */
+    .vertical-box {
+      width: 320px;            /* specified width */
+      border-radius: 20px;     /* rounded outer corners */
+      background: #a99fcf;     /* purple-ish background like the reference */
+      padding: 28px 20px;      /* inner spacing (box model: padding) */
+      box-shadow: 0 8px 18px rgba(30,30,50,0.12);
+      color: #1d1d1d;
+    }
+
+    /* Header area */
+    .vb-header {
+      text-align: center;
+      margin-bottom: 18px;     /* space between header and first card */
+      font-weight: 700;
+    }
+    .vb-header h1 {
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: 0.5px;
+      color: #0f0f12;
+      margin-bottom: 6px;
+    }
+    .vb-header p {
+      font-size: 16px;
+      opacity: 0.95;
+      margin-top: 2px;
+    }
+
+    /* Stack of inner white cards - vertical spacing controlled by margin (box model) */
+    .inner-card {
+      background: #f6f6f8;   /* card background */
+      border-radius: 10px;    /* card rounding */
+      padding: 18px 16px;     /* box-model content padding */
+      margin-bottom: 18px;    /* space between stacked cards */
+      box-shadow: 0 6px 12px rgba(20,20,40,0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Card label and big value styles */
+    .card-label {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #4b4b4b;
+      text-align: center;
+    }
+    .card-value {
+      font-weight: 800;
+      font-size: 36px;
+      line-height: 1;
+      color: #0b0b0b;
+    }
+
+    /* Make the very large number slightly tighter on small screens */
+    @media (max-width: 360px){
+      .vertical-box { width: 92%; padding: 22px; }
+      .card-value { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="vertical-box" role="region" aria-label="Highest and Average CTC">
+
+      <div class="vb-header">
+        <h1>Highest &amp;<br/>Average CTC</h1>
+      </div>
+
+      <!-- Card 1 -->
+      <div class="inner-card">
+        <div class="card-label">Expected Increase in<br/>Salary Potential</div>
+        <div class="card-value">60%</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="inner-card">
+        <div class="card-label">Average CTC</div>
+        <div class="card-value">₹6.1 LPA</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="inner-card">
+        <div class="card-label">Highest CTC</div>
+        <div class="card-value">₹36 LPA</div>
+      </div>
+
+    </section>
+  </div>
+</body>
+</html>
